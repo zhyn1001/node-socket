@@ -1,0 +1,20 @@
+{
+  "name": "socket",
+  "version": "1.0.0",
+  "description": "socket实时通讯",
+  "main": "index.js",
+  "scripts": {
+    "start": "node js/app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "cookie-parser": "~1.4.3",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "mongoose": "^5.5.4",
+    "nodejs-websocket": "^1.7.2",
+    "socket.io": "^2.2.0"
+  }
+}
