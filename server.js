@@ -9,7 +9,8 @@ var io = require('socket.io')(http)
 
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
-
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'html');//设置模板引擎
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -22,8 +23,18 @@ app.use(session({
 		maxAge: 1000 * 60 * 3
 	}
 }))
-var counts = 0
 
+var counts = 0
+app.use(function(req, res, next){
+	if(req.session.userInfo && req.session.userInfo.username !== "") {
+		app.locals['userInfo'] = req.session.userInfo
+		next()
+	} else {
+		next()
+	}
+	
+})
+console.log(__dirname)
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html')
 })

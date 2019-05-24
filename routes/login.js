@@ -19,7 +19,7 @@ router.post('/doLogin', function (req, res, next) {
 			if( bcrypt.compareSync(_password, doc.password) ){
 				var _user = {username:doc.username}
                 req.session.userInfo = _user;
-				res.redirect('/',{name:'cdcd'});
+				res.redirect('/');
 			}else{
 				res.send(`<script>alert('密码错误')</script>`);
 			}

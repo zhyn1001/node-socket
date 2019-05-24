@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		var ws = null
+		ws = new WebSocket('ws://127.0.0.1:12233')
+		ws.onopen = function(){
+			ws.send(JSON.stringify({
+				name:'小白兔',
+				type:'setname'
+			}))
+		}
+	</script>
+</html>
