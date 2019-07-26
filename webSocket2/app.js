@@ -5,6 +5,7 @@ var server = ws.createServer(function(conn) {
 	conn.on('text', function(str) {
 
 		var data = JSON.parse(str);
+		console.log(data)
 		switch (data.type) {
 			case 'setname':
 				conn.nickname = data.name;
